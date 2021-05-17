@@ -9,5 +9,6 @@ public class Player extends AbstractMultiplayerPlayer {
     public int getExpectedOutputLines() {
         return 1;
     }
+    public PlayerClass player;
 
 }

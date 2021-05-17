@@ -1,5 +1,7 @@
 package com.codingame.game;
 
+import com.google.errorprone.annotations.Var;
+
 import java.util.ArrayList;
 
 public class PlayerClass {
@@ -13,6 +15,11 @@ public class PlayerClass {
 	private static int defence;
 	private static int speedBonus;
 	private static int harvestBonus;
+
+	private int wood;
+	private int stone;
+	private int copper;
+	private int cherrys;
 	
 	public PlayerClass(int x, int y) {
 		playerX = x;
@@ -22,7 +29,6 @@ public class PlayerClass {
 		speedBonus = 0;
 		harvestBonus = 0;
 		playerItems = new ArrayList<Item>();
-		
 	}
 
 	public static int getCurrentPlace() {
@@ -30,7 +36,7 @@ public class PlayerClass {
 	}
 
 	public static void setCurrentPlace(int currentPlace) {
-		Player.currentPlace = currentPlace;
+		PlayerClass.currentPlace = currentPlace;
 	}
 
 	public static int getPlayerY() {
@@ -38,7 +44,7 @@ public class PlayerClass {
 	}
 
 	public static void setPlayerY(int playerY) {
-		Player.playerY = playerY;
+		PlayerClass.playerY = playerY;
 	}
 
 	public static int getPlayerX() {
@@ -46,6 +52,15 @@ public class PlayerClass {
 	}
 
 	public static void setPlayerX(int playerX) {
-		Player.playerX = playerX;
+		PlayerClass.playerX = playerX;
+	}
+	public static int getAttack() { return PlayerClass.attack; }
+
+	public void calculateStats()
+	{
+		for (int i=0;i<playerItems.size();i++)
+		{
+			playerItems.get(i);
+		}
 	}
 }
