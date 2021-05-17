@@ -8,6 +8,7 @@ public class Constants {
 	public static String playerSprite = "playerSprite.png";
 	public static String planetSprite = "planetSprite.png";
 	public static String resourceSprite = "resourceSprite.png";
+	public static String backgroundSprite = "bgSprite.png";
 	
 	
 	
