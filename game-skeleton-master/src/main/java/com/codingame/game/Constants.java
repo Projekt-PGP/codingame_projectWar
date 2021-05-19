@@ -9,6 +9,9 @@ public class Constants {
 	public static String planetSprite = "planetSprite.png";
 	public static String resourceSprite = "resourceSprite.png";
 	public static String backgroundSprite = "bgSprite.png";
+
+	public enum ACTIONTYPE {MOVE, CRAFT, HARVEST};
+	public enum ITEMTYPE {PICKAXE, HATCHET};
 	
 	
 	
