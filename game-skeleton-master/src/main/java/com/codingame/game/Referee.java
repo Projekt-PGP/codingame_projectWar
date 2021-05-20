@@ -6,16 +6,76 @@ import com.codingame.gameengine.core.AbstractPlayer.TimeoutException;
 import com.codingame.gameengine.core.AbstractReferee;
 import com.codingame.gameengine.core.MultiplayerGameManager;
 import com.codingame.gameengine.module.entities.GraphicEntityModule;
+import com.codingame.gameengine.module.entities.Sprite;
 import com.google.inject.Inject;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 public class Referee extends AbstractReferee {
     @Inject private MultiplayerGameManager<Player> gameManager;
     @Inject private GraphicEntityModule graphicEntityModule;
+    ArrayList<Player> playerList;
+
+    
+    private Sprite playerSprites[];
+    private Sprite resourceSprites[];
+    private Sprite planetSprites[];
+    
+
+    private int xOffPlayer = 35;
+    private int yOffPlayer = 30;
+    private int xOffPlanet = 64;
+    private int yOffPlanet = 64;
 
     @Override
     public void init() {
-        ArrayList<Player> playerList= initPlayers();
+    	playerList = new ArrayList<Player>();
+        playerList = initPlayers();
+        for (Player player : playerList) {
+        	System.out.println(player.pl.getPlayerX());
+        }
+        playerSprites = new Sprite[4];
+        resourceSprites = new Sprite[5];
+        planetSprites = new Sprite[5];
+        
+        draw();
+         
+        
+        
+    }
+    
+    public void draw() {
+    	
+
+    	graphicEntityModule.createSprite()
+        .setImage(Constants.backgroundSpritePng)
+        .setAnchor(0)
+        .setBaseWidth(1920)
+        .setBaseHeight(1080);
+    	
+
+    	int x[] = {1000, 1000, 1500, 500, 500};
+    	int y[] = {200, 800, 500, 500, 800};
+    	for (int i = 0; i<5 ; i++) {
+    		planetSprites[i] = graphicEntityModule.createSprite()
+    				.setImage(Constants.planetSpritesPng[i])
+    				.setX(x[i])
+    				.setY(y[i]);
+    		resourceSprites[i] = graphicEntityModule.createSprite()
+    				.setImage(Constants.resourceSpritesPng[i])
+    				.setX(x[i]+xOffPlayer)
+    				.setY(y[i]+yOffPlayer);
+    		i+=1;
+    	}
+    	
+    	int i = 0;
+    	for (Player player : playerList) {
+    		playerSprites[i] = graphicEntityModule.createSprite()
+    				.setImage(Constants.playerSpritesPng[i])
+    				.setX(player.pl.getPlayerX()+xOffPlayer)
+    				.setY(player.pl.getPlayerY()+yOffPlayer);
+    		i+=1;
+    	}
+    	
     }
 
 
@@ -48,7 +108,7 @@ public class Referee extends AbstractReferee {
     }
     public ArrayList<Player> initPlayers()
     {
-        ArrayList<Player> pList=new ArrayList<>();
+        ArrayList<Player> pList=new ArrayList<Player>();
         Player player1=new Player();
         player1.pl=new PlayerClass(100,400);
         Player player2=new Player();

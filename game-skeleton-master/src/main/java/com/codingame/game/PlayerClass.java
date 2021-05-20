@@ -50,7 +50,7 @@ public class PlayerClass {
 		PlayerClass.currentPlace = currentPlace;
 	}
 
-	public static int getPlayerY() {
+	public int getPlayerY() {
 		return playerY;
 	}
 
@@ -58,7 +58,7 @@ public class PlayerClass {
 		PlayerClass.playerY = playerY;
 	}
 
-	public static int getPlayerX() {
+	public int getPlayerX() {
 		return playerX;
 	}
 
