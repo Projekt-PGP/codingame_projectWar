@@ -2,11 +2,17 @@ package com.codingame.game;
 
 public class Item {
 	
-	private static int attack;
-	private static int defence;
-	private static int speedBonus;
-	private static int harvestBonus;
-	private static int price;
+	protected static int attack;
+	protected static int defence;
+	protected static int speedBonus;
+	protected static int stoneHarvestBonus;
+	protected static int woodHarvestBonus;
+
+
+	protected static int woodNeeded;
+	protected static int stoneNeeded;
+	protected static int cherriesNeeded;
+	protected static int copperNeeded;
 	
 	public static int getAttack() {
 		return attack;
@@ -30,25 +36,13 @@ public class Item {
 	public static void setSpeedBonus(int speedBonus) {
 		Item.speedBonus = speedBonus;
 	}
-	
-	public static int getPrice() {
-		return price;
-	}
-	
-	public static void setPrice(int price) {
-		Item.price = price;
-	}
 
 	public static int getHarvestBonus() {
-		return harvestBonus;
+		return stoneHarvestBonus;
 	}
 
 	public static void setHarvestBonus(int harvestBonus) {
-		Item.harvestBonus = harvestBonus;
+		Item.stoneHarvestBonus = harvestBonus;
 	}
-	
-	
-	
-	
-	
+
 }
